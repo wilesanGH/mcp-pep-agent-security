@@ -1,0 +1,24 @@
+{
+  "session_id": "sess_attack_experiment",
+  "allow_tools": [
+    "filesystem.read_file",
+    "filesystem.write_file",
+    "web_search.search",
+    "send_email.send",
+    "shell.run"
+  ],
+  "path_scope": ["workspace/", "./workspace/"],
+  "max_calls_per_tool": {
+    "send_email.send": 10,
+    "shell.run": 10
+  },
+  "server_source_integrity": {
+    "filesystem":  "SI:MED",
+    "web_search":  "SI:LOW",
+    "shell":       "SI:MED",
+    "send_email":  "SI:MED"
+  },
+  "server_data_sensitivity_policy": {
+    "filesystem": "detect"
+  }
+}

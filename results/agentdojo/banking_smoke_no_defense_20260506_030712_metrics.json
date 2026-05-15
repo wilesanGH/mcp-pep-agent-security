@@ -1,0 +1,16 @@
+{
+  "tag": "smoke_no_defense",
+  "timestamp": "20260506_030712",
+  "metrics": {
+    "n_attack_pairs": 1,
+    "n_benign_pairs": 1,
+    "n_total": 2,
+    "n_errors": 0,
+    "ASR": 0.0,
+    "TSR": 0.5,
+    "FPR_call": 0.0,
+    "FNR": 0.0,
+    "chain_valid": 1.0
+  },
+  "n_runs": 2
+}

@@ -1,0 +1,25 @@
+{
+  "session_id": "sess_agentdojo_workspace",
+  "allow_tools": [
+    "send_email.send",
+    "filesystem.read_file",
+    "filesystem.write_file",
+    "web_search.search",
+    "delete.delete"
+  ],
+  "path_scope": ["/", "workspace/", "./workspace/"],
+  "max_calls_per_tool": {
+    "send_email.send": 20,
+    "delete.delete": 5
+  },
+  "server_source_integrity": {
+    "web_search":  "SI:LOW",
+    "filesystem":  "SI:MED",
+    "send_email":  "SI:MED",
+    "delete":      "SI:MED"
+  },
+  "server_data_sensitivity_policy": {
+    "filesystem": "detect",
+    "web_search": "detect"
+  }
+}

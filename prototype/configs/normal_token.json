@@ -1,0 +1,17 @@
+{
+  "session_id": "sess_normal_experiment",
+  "allow_tools": [
+    "filesystem.read_file",
+    "filesystem.write_file",
+    "web_search.search"
+  ],
+  "path_scope": ["workspace/", "./workspace/"],
+  "max_calls_per_tool": {},
+  "server_source_integrity": {
+    "filesystem":  "SI:MED",
+    "web_search":  "SI:LOW"
+  },
+  "server_data_sensitivity_policy": {
+    "filesystem": "detect"
+  }
+}

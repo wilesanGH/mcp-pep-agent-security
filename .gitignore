@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+.coverage
+htmlcov/
+
+# Virtualenvs
+.venv/
+venv/
+env/
+ENV/
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets / local configs (don't commit API keys, ever)
+.env
+.env.local
+*.key
+secrets/
+configs/local_*.json
+
+# Run artefacts that aren't part of the frozen results
+prototype/results/
+prototype/results_archive/
+prototype/workspace/
+prototype/.tmp/
+prototype/tmp/
+
+# Logs
+*.log
+logs/
+
+# Large outputs we deliberately exclude from the public repo
+results/audit_logs_raw/
+results/agentdojo/workspace*/
+results/*/mock_outputs/
+
+# Local notes / scratch
+NOTES_*.md
+SCRATCH_*.md
+*.bak

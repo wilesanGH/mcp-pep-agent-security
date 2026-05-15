@@ -1,0 +1,1166 @@
+{
+  "generated_at_utc": "2026-05-08T02:55:16.678560+00:00",
+  "generator": "experiments/generate_stats_summary.py",
+  "n_entries": 26,
+  "ifc_contribution_note": "IFC C\u2192D FNR_call reduction: 43.0% - 16.6% = 26.4pp (displayed-value arithmetic; raw diff = 26.45pp rounds to 26.4pp at 1 decimal)",
+  "all_source_hashes": {
+    "results_jisa_v8/agentdojo/workspace_deepseek/pilot_workspace_full_r5_20260507_173009_metrics.json": "c8439eeab03f5be034287d0caaf209682e065efd4fb0b18713b973e98317a690",
+    "results_jisa_v8/agentdojo/workspace_deepseek/pilot_workspace_no_defense_r5_20260507_130802_metrics.json": "ac91a23186603676c23cd4b5400746e6850e695ac454728201bb6ae75ff0b951",
+    "results_jisa_v8/agentdojo/workspace_deepseek/pilot_workspace_prompt_enc_r5_20260507_145841_metrics.json": "ed029d4875c6fe5b1195443c5642882017ac5868cb3b7a80d009bbc88d8b18d4",
+    "results_jisa_v8/phase4_cross_model/claude-haiku-4.5/metrics/eval_llm_anthropic_claude-haiku-4_5_20260507_173424.json": "0245bd1a248098051aa53ea31e4a6f9cf5e93adeef242b9beef442c12fea5e43",
+    "results_jisa_v8/phase4_cross_model/glm-4.7/metrics/eval_llm_glm-4_7_20260507_132533.json": "094ad99a671a4ce3e660bb0dace9a58bf6f24909262a2c4ae5e73dd57a6196e0",
+    "results_jisa_v8/phase4_cross_model/kimi-k2.5/metrics/eval_llm_kimi-k2_5_20260507_140421.json": "bf4d8f86051ab5a479383face2098da7ff6c2b709081bfb25907c2b11e4378bb",
+    "results_jisa_v8/phase4_cross_model/llama-3.3-70b/metrics/eval_llm_meta-llama_llama-3_3-70b-instruct_20260507_171710.json": "de3a99811669434a89698e265dc04f373634593aaee2f8d8b7426dd5e698c430",
+    "results_jisa_v8/qwen_replication/stats/stats_2026-05-05_050227.json": "d42873f4d8c860b95fb5f0c6f641d88c22f27bda9ddb0e1540a9178351385052",
+    "results_jisa_v8/stats/stats_2026-05-05_050226.json": "3fbb3c2b9020d646699ba3d27c875461470d748ea819a8a419517e80e4e35735",
+    "results_jisa_v8/stats/stats_2026-05-06_004255.json": "4a5d48944f0e3ff364ae76307de43f96d81845b5adece0c40640cd3c20b38438"
+  },
+  "frozen_phase2_source_hashes": {
+    "phase2_main": "4a5d48944f0e3ff364ae76307de43f96d81845b5adece0c40640cd3c20b38438",
+    "phase2_crossver": "3fbb3c2b9020d646699ba3d27c875461470d748ea819a8a419517e80e4e35735",
+    "phase2_qwen": "d42873f4d8c860b95fb5f0c6f641d88c22f27bda9ddb0e1540a9178351385052"
+  },
+  "entries": [
+    {
+      "experiment": "phase2_main",
+      "model": "deepseek-v4-pro",
+      "baseline": "d0",
+      "n_runs_total": 150,
+      "n_runs_valid": 150,
+      "n_repeats": 5,
+      "source_file": "results_jisa_v8/stats/stats_2026-05-06_004255.json",
+      "source_sha256": "4a5d48944f0e3ff364ae76307de43f96d81845b5adece0c40640cd3c20b38438",
+      "section": "\u00a74.4",
+      "table": "Table 6",
+      "metrics": {
+        "ASR": {
+          "mean": 0.05,
+          "std": 0.0,
+          "n": 5
+        },
+        "TSR": {
+          "mean": 0.78,
+          "std": 0.0447,
+          "n": 5
+        },
+        "FPR_call": {
+          "mean": 0.0662,
+          "std": 0.0163,
+          "n": 5
+        },
+        "FPR_task": {
+          "mean": 0.36,
+          "std": 0.0548,
+          "n": 5
+        },
+        "FNR_call": {
+          "mean": 0.1703,
+          "std": 0.0084,
+          "n": 5
+        },
+        "attack_attempt_rate": {
+          "mean": 0.67,
+          "std": 0.0274,
+          "n": 5
+        }
+      }
+    },
+    {
+      "experiment": "phase2_main",
+      "model": "deepseek-v4-pro",
+      "baseline": "full",
+      "n_runs_total": 150,
+      "n_runs_valid": 150,
+      "n_repeats": 5,
+      "source_file": "results_jisa_v8/stats/stats_2026-05-06_004255.json",
+      "source_sha256": "4a5d48944f0e3ff364ae76307de43f96d81845b5adece0c40640cd3c20b38438",
+      "section": "\u00a74.4",
+      "table": "Table 6",
+      "metrics": {
+        "ASR": {
+          "mean": 0.05,
+          "std": 0.0,
+          "n": 5
+        },
+        "TSR": {
+          "mean": 0.82,
+          "std": 0.0447,
+          "n": 5
+        },
+        "FPR_call": {
+          "mean": 0.0459,
+          "std": 0.0032,
+          "n": 5
+        },
+        "FPR_task": {
+          "mean": 0.3,
+          "std": 0.0,
+          "n": 5
+        },
+        "FNR_call": {
+          "mean": 0.1658,
+          "std": 0.0148,
+          "n": 5
+        },
+        "attack_attempt_rate": {
+          "mean": 0.66,
+          "std": 0.0224,
+          "n": 5
+        }
+      }
+    },
+    {
+      "experiment": "phase2_main",
+      "model": "deepseek-v4-pro",
+      "baseline": "no_defense",
+      "n_runs_total": 150,
+      "n_runs_valid": 150,
+      "n_repeats": 5,
+      "source_file": "results_jisa_v8/stats/stats_2026-05-06_004255.json",
+      "source_sha256": "4a5d48944f0e3ff364ae76307de43f96d81845b5adece0c40640cd3c20b38438",
+      "section": "\u00a74.4",
+      "table": "Table 6",
+      "metrics": {
+        "ASR": {
+          "mean": 0.4,
+          "std": 0.0,
+          "n": 5
+        },
+        "TSR": {
+          "mean": 0.82,
+          "std": 0.0447,
+          "n": 5
+        },
+        "FPR_call": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "FPR_task": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "FNR_call": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "attack_attempt_rate": {
+          "mean": 0.65,
+          "std": 0.0,
+          "n": 5
+        }
+      }
+    },
+    {
+      "experiment": "phase2_main",
+      "model": "deepseek-v4-pro",
+      "baseline": "prompt_data",
+      "n_runs_total": 150,
+      "n_runs_valid": 150,
+      "n_repeats": 5,
+      "source_file": "results_jisa_v8/stats/stats_2026-05-06_004255.json",
+      "source_sha256": "4a5d48944f0e3ff364ae76307de43f96d81845b5adece0c40640cd3c20b38438",
+      "section": "\u00a74.4",
+      "table": "Table 6",
+      "metrics": {
+        "ASR": {
+          "mean": 0.37,
+          "std": 0.0274,
+          "n": 5
+        },
+        "TSR": {
+          "mean": 0.84,
+          "std": 0.0548,
+          "n": 5
+        },
+        "FPR_call": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "FPR_task": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "FNR_call": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "attack_attempt_rate": {
+          "mean": 0.64,
+          "std": 0.0224,
+          "n": 5
+        }
+      }
+    },
+    {
+      "experiment": "phase2_main",
+      "model": "deepseek-v4-pro",
+      "baseline": "prompt_delim",
+      "n_runs_total": 150,
+      "n_runs_valid": 150,
+      "n_repeats": 5,
+      "source_file": "results_jisa_v8/stats/stats_2026-05-06_004255.json",
+      "source_sha256": "4a5d48944f0e3ff364ae76307de43f96d81845b5adece0c40640cd3c20b38438",
+      "section": "\u00a74.4",
+      "table": "Table 6",
+      "metrics": {
+        "ASR": {
+          "mean": 0.4,
+          "std": 0.0,
+          "n": 5
+        },
+        "TSR": {
+          "mean": 0.86,
+          "std": 0.0548,
+          "n": 5
+        },
+        "FPR_call": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "FPR_task": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "FNR_call": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "attack_attempt_rate": {
+          "mean": 0.65,
+          "std": 0.0,
+          "n": 5
+        }
+      }
+    },
+    {
+      "experiment": "phase2_main",
+      "model": "deepseek-v4-pro",
+      "baseline": "prompt_enc",
+      "n_runs_total": 150,
+      "n_runs_valid": 150,
+      "n_repeats": 5,
+      "source_file": "results_jisa_v8/stats/stats_2026-05-06_004255.json",
+      "source_sha256": "4a5d48944f0e3ff364ae76307de43f96d81845b5adece0c40640cd3c20b38438",
+      "section": "\u00a74.4",
+      "table": "Table 6",
+      "metrics": {
+        "ASR": {
+          "mean": 0.35,
+          "std": 0.0,
+          "n": 5
+        },
+        "TSR": {
+          "mean": 0.8,
+          "std": 0.0,
+          "n": 5
+        },
+        "FPR_call": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "FPR_task": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "FNR_call": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "attack_attempt_rate": {
+          "mean": 0.64,
+          "std": 0.0224,
+          "n": 5
+        }
+      }
+    },
+    {
+      "experiment": "phase2_main",
+      "model": "deepseek-v4-pro",
+      "baseline": "runtime_ablation",
+      "n_runs_total": 150,
+      "n_runs_valid": 150,
+      "n_repeats": 5,
+      "source_file": "results_jisa_v8/stats/stats_2026-05-06_004255.json",
+      "source_sha256": "4a5d48944f0e3ff364ae76307de43f96d81845b5adece0c40640cd3c20b38438",
+      "section": "\u00a74.3/\u00a74.4",
+      "table": "Table 5/6",
+      "metrics": {
+        "ASR": {
+          "mean": 0.09,
+          "std": 0.0224,
+          "n": 5
+        },
+        "TSR": {
+          "mean": 0.76,
+          "std": 0.0548,
+          "n": 5
+        },
+        "FPR_call": {
+          "mean": 0.0582,
+          "std": 0.019,
+          "n": 5
+        },
+        "FPR_task": {
+          "mean": 0.34,
+          "std": 0.0548,
+          "n": 5
+        },
+        "FNR_call": {
+          "mean": 0.4303,
+          "std": 0.071,
+          "n": 5
+        },
+        "attack_attempt_rate": {
+          "mean": 0.65,
+          "std": 0.0,
+          "n": 5
+        }
+      }
+    },
+    {
+      "experiment": "phase2_crossver",
+      "model": "deepseek-chat",
+      "baseline": "d0",
+      "n_runs_total": 150,
+      "n_runs_valid": 150,
+      "n_repeats": 5,
+      "source_file": "results_jisa_v8/stats/stats_2026-05-05_050226.json",
+      "source_sha256": "3fbb3c2b9020d646699ba3d27c875461470d748ea819a8a419517e80e4e35735",
+      "section": "\u00a74.4",
+      "table": "Table 7",
+      "metrics": {
+        "ASR": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "TSR": {
+          "mean": 0.6,
+          "std": 0.0,
+          "n": 5
+        },
+        "FPR_call": {
+          "mean": 0.0804,
+          "std": 0.0044,
+          "n": 5
+        },
+        "FPR_task": {
+          "mean": 0.6,
+          "std": 0.0,
+          "n": 5
+        },
+        "FNR_call": {
+          "mean": 0.149,
+          "std": 0.0022,
+          "n": 5
+        },
+        "attack_attempt_rate": {
+          "mean": 0.64,
+          "std": 0.0224,
+          "n": 5
+        }
+      }
+    },
+    {
+      "experiment": "phase2_crossver",
+      "model": "deepseek-chat",
+      "baseline": "full",
+      "n_runs_total": 150,
+      "n_runs_valid": 150,
+      "n_repeats": 5,
+      "source_file": "results_jisa_v8/stats/stats_2026-05-05_050226.json",
+      "source_sha256": "3fbb3c2b9020d646699ba3d27c875461470d748ea819a8a419517e80e4e35735",
+      "section": "\u00a74.4",
+      "table": "Table 7",
+      "metrics": {
+        "ASR": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "TSR": {
+          "mean": 0.7,
+          "std": 0.0,
+          "n": 5
+        },
+        "FPR_call": {
+          "mean": 0.0177,
+          "std": 0.0058,
+          "n": 5
+        },
+        "FPR_task": {
+          "mean": 0.16,
+          "std": 0.0548,
+          "n": 5
+        },
+        "FNR_call": {
+          "mean": 0.1376,
+          "std": 0.0158,
+          "n": 5
+        },
+        "attack_attempt_rate": {
+          "mean": 0.65,
+          "std": 0.0,
+          "n": 5
+        }
+      }
+    },
+    {
+      "experiment": "phase2_crossver",
+      "model": "deepseek-chat",
+      "baseline": "no_defense",
+      "n_runs_total": 150,
+      "n_runs_valid": 150,
+      "n_repeats": 5,
+      "source_file": "results_jisa_v8/stats/stats_2026-05-05_050226.json",
+      "source_sha256": "3fbb3c2b9020d646699ba3d27c875461470d748ea819a8a419517e80e4e35735",
+      "section": "\u00a74.4",
+      "table": "Table 7",
+      "metrics": {
+        "ASR": {
+          "mean": 0.4,
+          "std": 0.0,
+          "n": 5
+        },
+        "TSR": {
+          "mean": 0.72,
+          "std": 0.0447,
+          "n": 5
+        },
+        "FPR_call": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "FPR_task": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "FNR_call": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "attack_attempt_rate": {
+          "mean": 0.65,
+          "std": 0.0,
+          "n": 5
+        }
+      }
+    },
+    {
+      "experiment": "phase2_qwen",
+      "model": "qwen3.5-plus",
+      "baseline": "full",
+      "n_runs_total": 150,
+      "n_runs_valid": 150,
+      "n_repeats": 5,
+      "source_file": "results_jisa_v8/qwen_replication/stats/stats_2026-05-05_050227.json",
+      "source_sha256": "d42873f4d8c860b95fb5f0c6f641d88c22f27bda9ddb0e1540a9178351385052",
+      "section": "\u00a74.4",
+      "table": "Table 8 candidate",
+      "metrics": {
+        "ASR": {
+          "mean": 0.06,
+          "std": 0.0224,
+          "n": 5
+        },
+        "TSR": {
+          "mean": 0.84,
+          "std": 0.0548,
+          "n": 5
+        },
+        "FPR_call": {
+          "mean": 0.424,
+          "std": 0.0873,
+          "n": 5
+        },
+        "FPR_task": {
+          "mean": 0.88,
+          "std": 0.0447,
+          "n": 5
+        },
+        "FNR_call": {
+          "mean": 0.251,
+          "std": 0.0482,
+          "n": 5
+        },
+        "attack_attempt_rate": {
+          "mean": 0.64,
+          "std": 0.0224,
+          "n": 5
+        }
+      }
+    },
+    {
+      "experiment": "phase2_qwen",
+      "model": "qwen3.5-plus",
+      "baseline": "no_defense",
+      "n_runs_total": 150,
+      "n_runs_valid": 150,
+      "n_repeats": 5,
+      "source_file": "results_jisa_v8/qwen_replication/stats/stats_2026-05-05_050227.json",
+      "source_sha256": "d42873f4d8c860b95fb5f0c6f641d88c22f27bda9ddb0e1540a9178351385052",
+      "section": "\u00a74.4",
+      "table": "Table 8 candidate",
+      "metrics": {
+        "ASR": {
+          "mean": 0.35,
+          "std": 0.0,
+          "n": 5
+        },
+        "TSR": {
+          "mean": 0.76,
+          "std": 0.0548,
+          "n": 5
+        },
+        "FPR_call": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "FPR_task": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "FNR_call": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "attack_attempt_rate": {
+          "mean": 0.65,
+          "std": 0.0,
+          "n": 5
+        }
+      }
+    },
+    {
+      "experiment": "phase2_qwen",
+      "model": "qwen3.5-plus",
+      "baseline": "prompt_delim",
+      "n_runs_total": 150,
+      "n_runs_valid": 150,
+      "n_repeats": 5,
+      "source_file": "results_jisa_v8/qwen_replication/stats/stats_2026-05-05_050227.json",
+      "source_sha256": "d42873f4d8c860b95fb5f0c6f641d88c22f27bda9ddb0e1540a9178351385052",
+      "section": "pending",
+      "table": "pending",
+      "metrics": {
+        "ASR": {
+          "mean": 0.36,
+          "std": 0.0224,
+          "n": 5
+        },
+        "TSR": {
+          "mean": 0.94,
+          "std": 0.0894,
+          "n": 5
+        },
+        "FPR_call": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "FPR_task": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "FNR_call": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "attack_attempt_rate": {
+          "mean": 0.65,
+          "std": 0.0,
+          "n": 5
+        }
+      }
+    },
+    {
+      "experiment": "phase2_qwen",
+      "model": "qwen3.5-plus",
+      "baseline": "prompt_enc",
+      "n_runs_total": 150,
+      "n_runs_valid": 150,
+      "n_repeats": 5,
+      "source_file": "results_jisa_v8/qwen_replication/stats/stats_2026-05-05_050227.json",
+      "source_sha256": "d42873f4d8c860b95fb5f0c6f641d88c22f27bda9ddb0e1540a9178351385052",
+      "section": "pending",
+      "table": "pending",
+      "metrics": {
+        "ASR": {
+          "mean": 0.35,
+          "std": 0.0354,
+          "n": 5
+        },
+        "TSR": {
+          "mean": 0.92,
+          "std": 0.0837,
+          "n": 5
+        },
+        "FPR_call": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "FPR_task": {
+          "mean": 0.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "FNR_call": {
+          "mean": 1.0,
+          "std": 0.0,
+          "n": 5
+        },
+        "attack_attempt_rate": {
+          "mean": 0.61,
+          "std": 0.0224,
+          "n": 5
+        }
+      }
+    },
+    {
+      "experiment": "phase2_qwen",
+      "model": "qwen3.5-plus",
+      "baseline": "runtime_ablation",
+      "n_runs_total": 150,
+      "n_runs_valid": 150,
+      "n_repeats": 5,
+      "source_file": "results_jisa_v8/qwen_replication/stats/stats_2026-05-05_050227.json",
+      "source_sha256": "d42873f4d8c860b95fb5f0c6f641d88c22f27bda9ddb0e1540a9178351385052",
+      "section": "\u00a74.4",
+      "table": "Table 8 candidate",
+      "metrics": {
+        "ASR": {
+          "mean": 0.05,
+          "std": 0.0354,
+          "n": 5
+        },
+        "TSR": {
+          "mean": 0.78,
+          "std": 0.0447,
+          "n": 5
+        },
+        "FPR_call": {
+          "mean": 0.011,
+          "std": 0.0102,
+          "n": 5
+        },
+        "FPR_task": {
+          "mean": 0.06,
+          "std": 0.0548,
+          "n": 5
+        },
+        "FNR_call": {
+          "mean": 0.5826,
+          "std": 0.0527,
+          "n": 5
+        },
+        "attack_attempt_rate": {
+          "mean": 0.65,
+          "std": 0.0,
+          "n": 5
+        }
+      }
+    },
+    {
+      "experiment": "phase4_crossmodel",
+      "model": "GLM-4.7",
+      "baseline": "no_defense",
+      "n_runs_total": 57,
+      "n_runs_valid": null,
+      "n_repeats": 3,
+      "source_file": "results_jisa_v8/phase4_cross_model/glm-4.7/metrics/eval_llm_glm-4_7_20260507_132533.json",
+      "source_sha256": "094ad99a671a4ce3e660bb0dace9a58bf6f24909262a2c4ae5e73dd57a6196e0",
+      "section": "\u00a74.7",
+      "table": "Table 9",
+      "metrics": {
+        "ASR": {
+          "mean": 0.429,
+          "std": null,
+          "n": 42
+        },
+        "TSR": {
+          "mean": 1.0,
+          "std": null,
+          "n": 42
+        },
+        "FPR_call": {
+          "mean": 0.0,
+          "std": null,
+          "n": 15
+        },
+        "FPR_task": {
+          "mean": 0.0,
+          "std": null,
+          "n": 15
+        },
+        "FNR_call": {
+          "mean": 1.0,
+          "std": null,
+          "n": 42
+        },
+        "attempt_rate": {
+          "mean": 0.571,
+          "std": null,
+          "n": null
+        }
+      }
+    },
+    {
+      "experiment": "phase4_crossmodel",
+      "model": "GLM-4.7",
+      "baseline": "full",
+      "n_runs_total": 57,
+      "n_runs_valid": null,
+      "n_repeats": 3,
+      "source_file": "results_jisa_v8/phase4_cross_model/glm-4.7/metrics/eval_llm_glm-4_7_20260507_132533.json",
+      "source_sha256": "094ad99a671a4ce3e660bb0dace9a58bf6f24909262a2c4ae5e73dd57a6196e0",
+      "section": "\u00a74.7",
+      "table": "Table 9",
+      "metrics": {
+        "ASR": {
+          "mean": 0.048,
+          "std": null,
+          "n": 42
+        },
+        "TSR": {
+          "mean": 1.0,
+          "std": null,
+          "n": 42
+        },
+        "FPR_call": {
+          "mean": 0.425,
+          "std": null,
+          "n": 15
+        },
+        "FPR_task": {
+          "mean": 0.6,
+          "std": null,
+          "n": 15
+        },
+        "FNR_call": {
+          "mean": 0.362,
+          "std": null,
+          "n": 42
+        },
+        "attempt_rate": {
+          "mean": 0.476,
+          "std": null,
+          "n": null
+        }
+      }
+    },
+    {
+      "experiment": "phase4_crossmodel",
+      "model": "Kimi-K2.5",
+      "baseline": "no_defense",
+      "n_runs_total": 57,
+      "n_runs_valid": null,
+      "n_repeats": 3,
+      "source_file": "results_jisa_v8/phase4_cross_model/kimi-k2.5/metrics/eval_llm_kimi-k2_5_20260507_140421.json",
+      "source_sha256": "bf4d8f86051ab5a479383face2098da7ff6c2b709081bfb25907c2b11e4378bb",
+      "section": "\u00a74.7",
+      "table": "Table 9",
+      "metrics": {
+        "ASR": {
+          "mean": 0.405,
+          "std": null,
+          "n": 42
+        },
+        "TSR": {
+          "mean": 0.933,
+          "std": null,
+          "n": 42
+        },
+        "FPR_call": {
+          "mean": 0.0,
+          "std": null,
+          "n": 15
+        },
+        "FPR_task": {
+          "mean": 0.0,
+          "std": null,
+          "n": 15
+        },
+        "FNR_call": {
+          "mean": 1.0,
+          "std": null,
+          "n": 42
+        },
+        "attempt_rate": {
+          "mean": 0.571,
+          "std": null,
+          "n": null
+        }
+      }
+    },
+    {
+      "experiment": "phase4_crossmodel",
+      "model": "Kimi-K2.5",
+      "baseline": "full",
+      "n_runs_total": 57,
+      "n_runs_valid": null,
+      "n_repeats": 3,
+      "source_file": "results_jisa_v8/phase4_cross_model/kimi-k2.5/metrics/eval_llm_kimi-k2_5_20260507_140421.json",
+      "source_sha256": "bf4d8f86051ab5a479383face2098da7ff6c2b709081bfb25907c2b11e4378bb",
+      "section": "\u00a74.7",
+      "table": "Table 9",
+      "metrics": {
+        "ASR": {
+          "mean": 0.0,
+          "std": null,
+          "n": 42
+        },
+        "TSR": {
+          "mean": 1.0,
+          "std": null,
+          "n": 42
+        },
+        "FPR_call": {
+          "mean": 0.255,
+          "std": null,
+          "n": 15
+        },
+        "FPR_task": {
+          "mean": 0.733,
+          "std": null,
+          "n": 15
+        },
+        "FNR_call": {
+          "mean": 0.354,
+          "std": null,
+          "n": 42
+        },
+        "attempt_rate": {
+          "mean": 0.5,
+          "std": null,
+          "n": null
+        }
+      }
+    },
+    {
+      "experiment": "phase4_crossmodel",
+      "model": "Claude-Haiku",
+      "baseline": "no_defense",
+      "n_runs_total": 57,
+      "n_runs_valid": null,
+      "n_repeats": 3,
+      "source_file": "results_jisa_v8/phase4_cross_model/claude-haiku-4.5/metrics/eval_llm_anthropic_claude-haiku-4_5_20260507_173424.json",
+      "source_sha256": "0245bd1a248098051aa53ea31e4a6f9cf5e93adeef242b9beef442c12fea5e43",
+      "section": "\u00a74.7",
+      "table": "Table 9",
+      "metrics": {
+        "ASR": {
+          "mean": 0.286,
+          "std": null,
+          "n": 42
+        },
+        "TSR": {
+          "mean": 0.8,
+          "std": null,
+          "n": 42
+        },
+        "FPR_call": {
+          "mean": 0.0,
+          "std": null,
+          "n": 15
+        },
+        "FPR_task": {
+          "mean": 0.0,
+          "std": null,
+          "n": 15
+        },
+        "FNR_call": {
+          "mean": 1.0,
+          "std": null,
+          "n": 42
+        },
+        "attempt_rate": {
+          "mean": 0.5,
+          "std": null,
+          "n": null
+        }
+      }
+    },
+    {
+      "experiment": "phase4_crossmodel",
+      "model": "Claude-Haiku",
+      "baseline": "full",
+      "n_runs_total": 57,
+      "n_runs_valid": null,
+      "n_repeats": 3,
+      "source_file": "results_jisa_v8/phase4_cross_model/claude-haiku-4.5/metrics/eval_llm_anthropic_claude-haiku-4_5_20260507_173424.json",
+      "source_sha256": "0245bd1a248098051aa53ea31e4a6f9cf5e93adeef242b9beef442c12fea5e43",
+      "section": "\u00a74.7",
+      "table": "Table 9",
+      "metrics": {
+        "ASR": {
+          "mean": 0.0,
+          "std": null,
+          "n": 42
+        },
+        "TSR": {
+          "mean": 0.8,
+          "std": null,
+          "n": 42
+        },
+        "FPR_call": {
+          "mean": 0.038,
+          "std": null,
+          "n": 15
+        },
+        "FPR_task": {
+          "mean": 0.2,
+          "std": null,
+          "n": 15
+        },
+        "FNR_call": {
+          "mean": 0.353,
+          "std": null,
+          "n": 42
+        },
+        "attempt_rate": {
+          "mean": 0.5,
+          "std": null,
+          "n": null
+        }
+      }
+    },
+    {
+      "experiment": "phase4_crossmodel",
+      "model": "LLaMA-3.3-70B",
+      "baseline": "no_defense",
+      "n_runs_total": 57,
+      "n_runs_valid": null,
+      "n_repeats": 3,
+      "source_file": "results_jisa_v8/phase4_cross_model/llama-3.3-70b/metrics/eval_llm_meta-llama_llama-3_3-70b-instruct_20260507_171710.json",
+      "source_sha256": "de3a99811669434a89698e265dc04f373634593aaee2f8d8b7426dd5e698c430",
+      "section": "\u00a74.7",
+      "table": "Table 9",
+      "metrics": {
+        "ASR": {
+          "mean": 0.357,
+          "std": null,
+          "n": 42
+        },
+        "TSR": {
+          "mean": 1.0,
+          "std": null,
+          "n": 42
+        },
+        "FPR_call": {
+          "mean": 0.0,
+          "std": null,
+          "n": 15
+        },
+        "FPR_task": {
+          "mean": 0.0,
+          "std": null,
+          "n": 15
+        },
+        "FNR_call": {
+          "mean": 1.0,
+          "std": null,
+          "n": 42
+        },
+        "attempt_rate": {
+          "mean": 0.571,
+          "std": null,
+          "n": null
+        }
+      }
+    },
+    {
+      "experiment": "phase4_crossmodel",
+      "model": "LLaMA-3.3-70B",
+      "baseline": "full",
+      "n_runs_total": 57,
+      "n_runs_valid": null,
+      "n_repeats": 3,
+      "source_file": "results_jisa_v8/phase4_cross_model/llama-3.3-70b/metrics/eval_llm_meta-llama_llama-3_3-70b-instruct_20260507_171710.json",
+      "source_sha256": "de3a99811669434a89698e265dc04f373634593aaee2f8d8b7426dd5e698c430",
+      "section": "\u00a74.7",
+      "table": "Table 9",
+      "metrics": {
+        "ASR": {
+          "mean": 0.167,
+          "std": null,
+          "n": 42
+        },
+        "TSR": {
+          "mean": 1.0,
+          "std": null,
+          "n": 42
+        },
+        "FPR_call": {
+          "mean": 0.562,
+          "std": null,
+          "n": 15
+        },
+        "FPR_task": {
+          "mean": 0.8,
+          "std": null,
+          "n": 15
+        },
+        "FNR_call": {
+          "mean": 0.432,
+          "std": null,
+          "n": 42
+        },
+        "attempt_rate": {
+          "mean": 0.595,
+          "std": null,
+          "n": null
+        }
+      }
+    },
+    {
+      "experiment": "phase3_agentdojo",
+      "model": "deepseek-v4-pro",
+      "baseline": "A",
+      "n_runs_total": 260,
+      "n_runs_valid": 246,
+      "n_repeats": 5,
+      "source_file": "results_jisa_v8/agentdojo/workspace_deepseek/pilot_workspace_no_defense_r5_20260507_130802_metrics.json",
+      "source_sha256": "ac91a23186603676c23cd4b5400746e6850e695ac454728201bb6ae75ff0b951",
+      "section": "\u00a74.8",
+      "table": "Table 11",
+      "notes": "",
+      "metrics": {
+        "ASR_valid": {
+          "mean": 0.4959,
+          "std": null,
+          "n": 246
+        },
+        "ASR_attempted": {
+          "mean": 0.488,
+          "std": null,
+          "n": 250
+        },
+        "TSR": {
+          "mean": 0.3828,
+          "std": null,
+          "n": 246
+        },
+        "FPR_call": {
+          "mean": 0.0,
+          "std": null,
+          "n": 10
+        },
+        "valid_rate": {
+          "mean": 0.9846,
+          "std": null,
+          "n": 250
+        }
+      }
+    },
+    {
+      "experiment": "phase3_agentdojo",
+      "model": "deepseek-v4-pro",
+      "baseline": "B-enc",
+      "n_runs_total": 260,
+      "n_runs_valid": 250,
+      "n_repeats": 5,
+      "source_file": "results_jisa_v8/agentdojo/workspace_deepseek/pilot_workspace_prompt_enc_r5_20260507_145841_metrics.json",
+      "source_sha256": "ed029d4875c6fe5b1195443c5642882017ac5868cb3b7a80d009bbc88d8b18d4",
+      "section": "\u00a74.8",
+      "table": "Table 11",
+      "notes": "",
+      "metrics": {
+        "ASR_valid": {
+          "mean": 0.052,
+          "std": null,
+          "n": 250
+        },
+        "ASR_attempted": {
+          "mean": 0.052,
+          "std": null,
+          "n": 250
+        },
+        "TSR": {
+          "mean": 0.8577,
+          "std": null,
+          "n": 250
+        },
+        "FPR_call": {
+          "mean": 0.0,
+          "std": null,
+          "n": 10
+        },
+        "valid_rate": {
+          "mean": 1.0,
+          "std": null,
+          "n": 250
+        }
+      }
+    },
+    {
+      "experiment": "phase3_agentdojo",
+      "model": "deepseek-v4-pro",
+      "baseline": "D",
+      "n_runs_total": 260,
+      "n_runs_valid": 203,
+      "n_repeats": 5,
+      "source_file": "results_jisa_v8/agentdojo/workspace_deepseek/pilot_workspace_full_r5_20260507_173009_metrics.json",
+      "source_sha256": "c8439eeab03f5be034287d0caaf209682e065efd4fb0b18713b973e98317a690",
+      "section": "\u00a74.8",
+      "table": "Table 11",
+      "notes": "D valid_rate=81.9%, below 85% threshold; directional evidence only",
+      "metrics": {
+        "ASR_valid": {
+          "mean": 0.2266,
+          "std": null,
+          "n": 203
+        },
+        "ASR_attempted": {
+          "mean": 0.184,
+          "std": null,
+          "n": 250
+        },
+        "TSR": {
+          "mean": 0.6714,
+          "std": null,
+          "n": 203
+        },
+        "FPR_call": {
+          "mean": 0.0,
+          "std": null,
+          "n": 10
+        },
+        "valid_rate": {
+          "mean": 0.8192,
+          "std": null,
+          "n": 250
+        }
+      }
+    }
+  ],
+  "phase2_audit_verification": {
+    "source_file": "results_jisa_v8/metrics/phase2_main_deepseek-v4-pro_mvp30_v8.5.3.json",
+    "source_sha256": "bc42371d36ba8a4b62539608e36093989ab2a73882b3cc5d837b03ead76d6df1",
+    "n_runs_total": 1050,
+    "chain_valid_true": 1050,
+    "chain_valid_false": 0,
+    "chain_valid_rate": 1.0,
+    "note": "Full Phase-2 five-repeat audit verification (deepseek-v4-pro, 7 baselines \u00d7 30 tasks \u00d7 5 repeats = 1050 runs). 1050/1050 chain_valid=True."
+  }
+}

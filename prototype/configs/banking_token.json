@@ -1,0 +1,23 @@
+{
+  "session_id": "sess_agentdojo_banking",
+  "allow_tools": [
+    "send_email.send",
+    "filesystem.read_file",
+    "web_search.search",
+    "shell.run"
+  ],
+  "path_scope": ["workspace/", "./workspace/", "/"],
+  "max_calls_per_tool": {
+    "send_email.send": 20,
+    "shell.run": 5
+  },
+  "server_source_integrity": {
+    "filesystem": "SI:MED",
+    "web_search": "SI:MED",
+    "shell":       "SI:MED",
+    "send_email":  "SI:MED"
+  },
+  "server_data_sensitivity_policy": {
+    "filesystem": "detect"
+  }
+}
