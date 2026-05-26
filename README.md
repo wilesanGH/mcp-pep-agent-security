@@ -109,9 +109,3 @@ Manuscript under preparation. A preprint and citation block will be added here w
 
 MIT License — see `LICENSE`. Reuse encouraged for research, teaching, and security tooling.
 
-## Authors
-
-- **Shanshan Wang** — Computing Center, University of Shanghai for Science and Technology
-- **Ye Xue** — Computing Center, USST
-- **Dan Wang** — Computing Center, USST
-- **Rende Li** (Corresponding) — Business School & Library, USST · lirende@usst.edu.cn
