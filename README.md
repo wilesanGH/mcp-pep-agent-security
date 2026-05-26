@@ -1,6 +1,6 @@
-# MCP-PEP — Runtime Policy Enforcement and Observable Auditing for MCP-Based LLM Agents
+# Runtime Policy Enforcement for MCP-Based LLM Agents
 
-Replication package for the manuscript *"Beyond Prompt-Level Defense: Runtime Policy Enforcement and Observable Auditing for MCP-Based LLM Agents"*.
+
 
 > **Status (2026-05-15)**: Manuscript under preparation for submission. Repository tracks the experimental code, dataset, frozen result files, and provenance ledger that underpin the quantitative claims of §4 in the paper.
 
