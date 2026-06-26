@@ -40,6 +40,16 @@ _FILESYSTEM_TOOLS = {
 }
 
 
+# Outbound exfiltration sinks governed by R02 (DS:SENSITIVE -> DENY). The
+# intent-taint conservative-DS policy (baseline D-IT) forces effective_ds to
+# DS:SENSITIVE for these tools once a trace is intent-tainted, so R02 fires on
+# model-reconstructed exfiltration. This set MUST match the R02 tool set in
+# pep/rules.py exactly; web_search is intentionally excluded (not an R02 sink).
+_R02_OUTBOUND_TOOLS = {
+    "send_email.send", "http_post.post", "upload.upload", "webhook.call",
+}
+
+
 class PEPEnforcer:
     """
     Policy Enforcement Point.
@@ -60,6 +70,7 @@ class PEPEnforcer:
         skip_pep: bool = False,  # True → Baseline A
         workspace_root: Optional[str] = None,  # JISA v8: path-norm anchor
         path_normalization_enabled: bool = True,  # set False for D0 ablation
+        conservative_intent_ds: bool = False,  # True → Baseline D-IT (intent-taint)
     ):
         self._token = token
         self._rules = rule_engine
@@ -68,6 +79,12 @@ class PEPEnforcer:
         self._registry = tool_registry
         self._skip_pep = skip_pep
         self._ds = DSDetector()
+        # Intent-taint conservative-DS policy (baseline D-IT). When True, a trace
+        # that attempts a protected-source read (out-of-scope filesystem.read_file
+        # denied by R03) becomes intent-tainted; subsequent outbound R02 sinks are
+        # then forced to DS:SENSITIVE so R02 denies model-reconstructed exfiltration
+        # that the regex DS detector misses. Default False preserves baseline D.
+        self._conservative_intent_ds = conservative_intent_ds
         # JISA v8 path-norm config:
         #   workspace_root: absolute path of `workspace/` for membership tests.
         #     Defaults to <cwd>/workspace, matching the prototype's runtime layout.
@@ -111,6 +128,24 @@ class PEPEnforcer:
             return allow, result
 
         decision = self.evaluate(call, trace_state)
+
+        # Intent-taint trigger (baseline D-IT): a protected-source read attempt is
+        # an out-of-scope filesystem.read_file that R03 denied. Mark the trace so
+        # subsequent outbound R02 sinks are forced to DS:SENSITIVE. This is a
+        # TARGETED mitigation for the denied-read -> reconstruct -> exfiltrate
+        # pattern (the GLM/LLaMA T3 residual), not a general defence. The flag is
+        # set AFTER evaluating this read and BEFORE the next call is processed.
+        if (
+            self._conservative_intent_ds
+            and call.tool == "filesystem.read_file"
+            and decision.action == "DENY"
+            and decision.matched_rule == "R03"
+        ):
+            raw_path = (call.args or {}).get("path", "<unknown>")
+            self._tracker.mark_intent_tainted(
+                call.trace_id,
+                reason=f"protected-source read denied by R03 (path={raw_path})",
+            )
 
         # Track high-risk call timestamps for R05 (regardless of decision)
         if call.tool in _HIGH_RISK_TOOLS:
@@ -202,15 +237,39 @@ class PEPEnforcer:
         # Merge with trace DS (sticky: SENSITIVE wins)
         effective_ds = DS.merge(trace_state.current_ds, args_ds)
 
+        # 3b. Intent-taint conservative-DS policy (baseline D-IT). If the trace is
+        # intent-tainted (it attempted a protected-source read earlier) and this
+        # call is an R02 outbound sink, force DS:SENSITIVE so R02 fires even when
+        # the regex detector missed the (paraphrased/reconstructed) payload.
+        intent_forced = False
+        if (
+            self._conservative_intent_ds
+            and trace_state.intent_tainted
+            and call.tool in _R02_OUTBOUND_TOOLS
+            and effective_ds != DS.SENSITIVE
+        ):
+            effective_ds = DS.SENSITIVE
+            intent_forced = True
+
         # 4. Get effective SI/DS from LabelTracker
         #    (respects ifc_enabled flag for baseline C vs D)
         si, _ = self._tracker.get_labels_for_call(call.trace_id)
         ds = effective_ds
 
         # 5. Rule engine — R03 sees normalized path via rule_args
-        return _attach(
-            self._rules.evaluate(call.tool, si, ds, rule_args, trace_state)
-        )
+        decision = self._rules.evaluate(call.tool, si, ds, rule_args, trace_state)
+
+        # 5b. Audit provenance: when intent-taint forced the DS label, annotate
+        # the decision reason so the audit log explains why R02 fired here even
+        # though the per-call DS detector returned NORMAL. Without this, D-IT
+        # decisions are not reproducible/explainable from the audit trail.
+        if intent_forced:
+            decision.reason = (
+                f"{decision.reason} [intent-taint: DS forced SENSITIVE; "
+                f"trigger={trace_state.intent_taint_reason}]"
+            )
+
+        return _attach(decision)
 
     # ------------------------------------------------------------------
     # execute_allowed() — run tool, label result, update tracker

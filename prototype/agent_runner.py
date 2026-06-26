@@ -493,26 +493,42 @@ class AgentRunner:
           "runtime_ablation" → C: PEP enabled, IFC disabled
           "d0"               → D0: PEP + IFC, path-norm DISABLED (v7-equivalent ablation)
           "full"             → D: PEP + IFC + path normalization (v8 default)
+          "d_it"             → D-IT: D + intent-taint conservative-DS policy
+                               (R1/R2/R3 revision; forces DS:SENSITIVE on outbound
+                               sinks after a protected-source read is denied)
 
         token_type:
-          "attack"  → attack_token.json  (includes shell, email — lets PEP be the
-                       sole defense; used for attack samples)
-          "normal"  → normal_token.json  (minimal privilege — filesystem + web only;
-                       used for normal tasks to test FPR under least-privilege config)
+          "attack"    → attack_token.json    (includes shell, email — lets PEP be
+                         the sole defense; used for attack samples)
+          "normal"    → normal_token.json    (minimal privilege — filesystem + web
+                         only; least-privilege FPR baseline for normal tasks)
+          "usability" → usability_token.json (permits send_email + shell so benign
+                         outbound calls reach R01/R02/R05 instead of being
+                         TOKEN-denied; held-out usability FPR analysis. R1/R2/R3
+                         revision: separates rule false positives from
+                         least-privilege TOKEN denials.)
         """
         sid = session_id or str(uuid.uuid4())[:8]
 
-        token_file = "attack_token.json" if token_type == "attack" else "normal_token.json"
+        _TOKEN_FILES = {
+            "attack":    "attack_token.json",
+            "normal":    "normal_token.json",
+            "usability": "usability_token.json",
+        }
+        token_file = _TOKEN_FILES.get(token_type, "normal_token.json")
         token = CapabilityToken(str(Path(configs_dir) / token_file))
 
-        ifc_enabled = (baseline in ("full", "d0"))
+        ifc_enabled = (baseline in ("full", "d0", "d_it"))
         # B baselines (prompt_*) bypass PEP — they test prompt-only defenses.
         skip_pep = (baseline in ("no_defense", "prompt_only", "prompt_delim",
                                  "prompt_data", "prompt_enc"))
         # JISA v8: D (default "full") enables path normalization. The "d0"
         # baseline keeps everything else identical but disables path-norm so
-        # the v7 R03 prefix-match behaviour is preserved for ablation.
-        path_normalization_enabled = (baseline == "full")
+        # the v7 R03 prefix-match behaviour is preserved for ablation. D-IT
+        # inherits D's full config (IFC + path-norm) plus intent-taint.
+        path_normalization_enabled = (baseline in ("full", "d_it"))
+        # Intent-taint conservative-DS policy: only baseline D-IT.
+        conservative_intent_ds = (baseline == "d_it")
 
         tracker = LabelTracker(
             ifc_enabled=ifc_enabled,
@@ -534,6 +550,7 @@ class AgentRunner:
             skip_pep=skip_pep,
             workspace_root=str(Path(results_dir).parent / "workspace"),
             path_normalization_enabled=path_normalization_enabled,
+            conservative_intent_ds=conservative_intent_ds,
         )
 
         llm = None

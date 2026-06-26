@@ -55,3 +55,5 @@ results/*/mock_outputs/
 NOTES_*.md
 SCRATCH_*.md
 *.bak
+mcp_sandbox/
+results_v97_benign_llm/

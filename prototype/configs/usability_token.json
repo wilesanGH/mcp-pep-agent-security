@@ -1,0 +1,25 @@
+{
+  "session_id": "sess_usability_experiment",
+  "_comment": "R1/R2/R3 revision usability token. Permits the FULL benign tool surface (filesystem, web_search, send_email, shell) so that benign outbound calls reach R01/R02/R05 rule evaluation INSTEAD of being TOKEN-denied at the least-privilege boundary. This separates rule false positives (R01-R05) from least-privilege TOKEN denials when measuring operational friction on the held-out benign set. Use token_type='usability' for held-out usability FPR analysis; keep normal_token.json for the least-privilege security claim.",
+  "allow_tools": [
+    "filesystem.read_file",
+    "filesystem.write_file",
+    "web_search.search",
+    "send_email.send",
+    "shell.run"
+  ],
+  "path_scope": ["workspace/", "./workspace/"],
+  "max_calls_per_tool": {
+    "send_email.send": 10,
+    "shell.run": 10
+  },
+  "server_source_integrity": {
+    "filesystem":  "SI:MED",
+    "web_search":  "SI:LOW",
+    "shell":       "SI:MED",
+    "send_email":  "SI:MED"
+  },
+  "server_data_sensitivity_policy": {
+    "filesystem": "detect"
+  }
+}

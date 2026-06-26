@@ -161,13 +161,18 @@ class LLMClient:
                     f"or pass api_key= to LLMClient()."
                 )
 
-        # Increase per-request timeout (default OpenAI SDK is 60s; dashscope can be slow
-        # on long agent traces). 180s + 2 retries handles transient API stalls.
+        # Per-request timeout + retries handle transient API stalls (e.g. deepseek
+        # half-open connections). Configurable via env so a fail-fast-and-retry policy
+        # can be used for batch runs (LLM_TIMEOUT seconds, LLM_MAX_RETRIES count);
+        # defaults preserve the prior 180s/2-retry behaviour.
+        import os as _os
+        _timeout = float(_os.environ.get("LLM_TIMEOUT", "180"))
+        _retries = int(_os.environ.get("LLM_MAX_RETRIES", "2"))
         self._client = OpenAI(
             base_url=resolved_base_url,
             api_key=resolved_api_key,
-            timeout=180.0,
-            max_retries=2,
+            timeout=_timeout,
+            max_retries=_retries,
         )
         self._model = model or preset["default_model"]
         self._temperature = temperature

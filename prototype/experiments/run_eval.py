@@ -55,6 +55,7 @@ BASELINES = {
     "runtime_ablation":  "C — PEP, no SI cross-step IFC",
     "d0":                "D0 — Full PEP + IFC, path-norm DISABLED (v7-equivalent ablation)",
     "full":              "D — Full PEP + IFC + path normalization (v8 default)",
+    "d_it":              "D-IT — D + intent-taint conservative-DS (R1/R2/R3 revision)",
 }
 
 DEFAULT_BASELINES = ["no_defense", "runtime_ablation", "full"]  # A, C, D

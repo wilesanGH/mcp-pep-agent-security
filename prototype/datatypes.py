@@ -131,6 +131,17 @@ class TraceState:
     current_ds: str = DS.NORMAL # sticky: once SENSITIVE, never resets
     step: int = 0
     high_risk_call_timestamps: list = field(default_factory=list)
+    # Intent-taint conservative-DS policy (baseline D-IT, R1/R2/R3 revision).
+    # Set True once the trace attempts a protected-source read (an out-of-scope
+    # filesystem.read_file denied by R03). When the enforcer runs with
+    # conservative_intent_ds=True and this flag is set, subsequent outbound
+    # high-risk calls are forced to DS:SENSITIVE so R02 fires even when the
+    # model has paraphrased the sensitive content past the regex DS detector.
+    # This is a TARGETED mitigation for the denied-read -> reconstruct ->
+    # exfiltrate pattern (the GLM/LLaMA T3 residual), NOT a general
+    # memory-reconstruction defence. intent_taint_reason records why, for audit.
+    intent_tainted: bool = False
+    intent_taint_reason: str = ""
 
 
 @dataclass

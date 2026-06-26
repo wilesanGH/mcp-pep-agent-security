@@ -100,6 +100,22 @@ class LabelTracker:
         state = self._traces[trace_id]
         state.high_risk_call_timestamps.append(time.time())
 
+    def mark_intent_tainted(self, trace_id: str, reason: str) -> None:
+        """
+        Mark a trace as intent-tainted (conservative-DS policy, baseline D-IT).
+
+        Called by the enforcer when the trace attempts a protected-source read
+        (an out-of-scope filesystem.read_file denied by R03). Once set, the
+        enforcer (with conservative_intent_ds=True) forces subsequent outbound
+        high-risk calls to DS:SENSITIVE so R02 fires on model-reconstructed
+        exfiltration that the regex DS detector would otherwise miss. Idempotent:
+        the first triggering reason is preserved for audit reproducibility.
+        """
+        state = self._traces[trace_id]
+        if not state.intent_tainted:
+            state.intent_tainted = True
+            state.intent_taint_reason = reason
+
     def advance_step(self, trace_id: str) -> None:
         """Increment step counter without updating labels (used on DENY)."""
         self._traces[trace_id].step += 1
@@ -116,4 +132,6 @@ class LabelTracker:
             "current_si": s.current_si,
             "current_ds": s.current_ds,
             "ifc_enabled": self._ifc_enabled,
+            "intent_tainted": s.intent_tainted,
+            "intent_taint_reason": s.intent_taint_reason,
         }

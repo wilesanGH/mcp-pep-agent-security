@@ -1,0 +1,240 @@
+{
+  "baseline": "full",
+  "coverage": {
+    "deepseek-v4-pro": "150 full-baseline records",
+    "deepseek-chat": "150 full-baseline records",
+    "qwen3.5-plus": "150 full-baseline records",
+    "glm-4.7": "57 full-baseline records",
+    "claude-haiku-4.5": "57 full-baseline records",
+    "kimi-k2.5": "57 full-baseline records",
+    "llama-3.3-70b": "57 full-baseline records"
+  },
+  "X3_benign_by_model": {
+    "deepseek-v4-pro": {
+      "DENY": {
+        "TOKEN": 15
+      },
+      "CONFIRM": {}
+    },
+    "deepseek-chat": {
+      "DENY": {
+        "TOKEN": 8
+      },
+      "CONFIRM": {}
+    },
+    "qwen3.5-plus": {
+      "DENY": {
+        "R03": 120,
+        "TOKEN": 37
+      },
+      "CONFIRM": {}
+    },
+    "glm-4.7": {
+      "DENY": {
+        "R03": 21,
+        "TOKEN": 10
+      },
+      "CONFIRM": {}
+    },
+    "claude-haiku-4.5": {
+      "DENY": {
+        "R03": 3
+      },
+      "CONFIRM": {}
+    },
+    "kimi-k2.5": {
+      "DENY": {
+        "R03": 13
+      },
+      "CONFIRM": {}
+    }
+  },
+  "X1_attack_by_class_model": {
+    "T1": {
+      "deepseek-v4-pro": {
+        "DENY": {
+          "R01": 19,
+          "R02": 14
+        },
+        "CONFIRM": {}
+      },
+      "deepseek-chat": {
+        "DENY": {
+          "R01": 35,
+          "R03": 5,
+          "R02": 5
+        },
+        "CONFIRM": {}
+      },
+      "qwen3.5-plus": {
+        "DENY": {
+          "R01": 29,
+          "R03": 14,
+          "R02": 8
+        },
+        "CONFIRM": {
+          "R05": 2
+        }
+      },
+      "glm-4.7": {
+        "DENY": {
+          "R01": 14,
+          "R03": 1
+        },
+        "CONFIRM": {}
+      },
+      "claude-haiku-4.5": {
+        "DENY": {
+          "R01": 3
+        },
+        "CONFIRM": {}
+      },
+      "kimi-k2.5": {
+        "DENY": {
+          "R01": 9,
+          "R03": 3
+        },
+        "CONFIRM": {}
+      }
+    },
+    "T2": {
+      "deepseek-v4-pro": {
+        "DENY": {
+          "R01": 73,
+          "R03": 1,
+          "R02": 1
+        },
+        "CONFIRM": {}
+      },
+      "deepseek-chat": {
+        "DENY": {
+          "R01": 60,
+          "R03": 1
+        },
+        "CONFIRM": {}
+      },
+      "qwen3.5-plus": {
+        "DENY": {
+          "R03": 97,
+          "R01": 102
+        },
+        "CONFIRM": {}
+      },
+      "glm-4.7": {
+        "DENY": {
+          "R03": 29,
+          "R01": 26
+        },
+        "CONFIRM": {}
+      },
+      "claude-haiku-4.5": {
+        "DENY": {
+          "R03": 15,
+          "R01": 9
+        },
+        "CONFIRM": {}
+      },
+      "kimi-k2.5": {
+        "DENY": {
+          "R03": 11,
+          "R01": 8
+        },
+        "CONFIRM": {}
+      }
+    },
+    "T3": {
+      "deepseek-v4-pro": {
+        "DENY": {
+          "R02": 64
+        },
+        "CONFIRM": {
+          "R05": 1
+        }
+      },
+      "deepseek-chat": {
+        "DENY": {
+          "R02": 78
+        },
+        "CONFIRM": {
+          "R05": 9
+        }
+      },
+      "qwen3.5-plus": {
+        "DENY": {
+          "R03": 46,
+          "R02": 30
+        },
+        "CONFIRM": {}
+      },
+      "glm-4.7": {
+        "DENY": {
+          "R03": 27,
+          "R01": 2,
+          "R02": 2
+        },
+        "CONFIRM": {
+          "R05": 11
+        }
+      },
+      "claude-haiku-4.5": {
+        "DENY": {
+          "R02": 6
+        },
+        "CONFIRM": {}
+      },
+      "kimi-k2.5": {
+        "DENY": {
+          "R03": 11,
+          "R02": 6,
+          "R01": 1
+        },
+        "CONFIRM": {
+          "R05": 1
+        }
+      }
+    },
+    "T4": {
+      "deepseek-v4-pro": {
+        "DENY": {},
+        "CONFIRM": {
+          "R05": 25
+        }
+      },
+      "deepseek-chat": {
+        "DENY": {
+          "R01": 5,
+          "R03": 15
+        },
+        "CONFIRM": {
+          "R05": 40
+        }
+      },
+      "qwen3.5-plus": {
+        "DENY": {},
+        "CONFIRM": {
+          "R05": 37
+        }
+      },
+      "glm-4.7": {
+        "DENY": {
+          "R03": 3
+        },
+        "CONFIRM": {
+          "R05": 26
+        }
+      },
+      "claude-haiku-4.5": {
+        "DENY": {},
+        "CONFIRM": {
+          "R05": 15
+        }
+      },
+      "kimi-k2.5": {
+        "DENY": {},
+        "CONFIRM": {
+          "R05": 17
+        }
+      }
+    }
+  }
+}
