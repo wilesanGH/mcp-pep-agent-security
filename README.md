@@ -91,19 +91,6 @@ Headline aggregates are reproduced in `results/stats/stats_summary.md`:
 | Phase 4 cross-model | Claude Haiku 4.5 | D | 0.0% | — | `results/phase4_cross_model/claude-haiku-4.5/metrics/` |
 | Phase 4 cross-model | LLaMA-3.3-70B | D | 16.7% | — | `results/phase4_cross_model/llama-3.3-70b/metrics/` |
 
-## Citation
-
-Manuscript under preparation. A preprint and citation block will be added here when available. Until then, please cite this repository directly:
-
-```bibtex
-@software{wang2026mcppep,
-  author       = {Wang, Shanshan and Xue, Ye and Wang, Dan and Li, Rende},
-  title        = {{MCP-PEP}: Runtime Policy Enforcement and Observable Auditing for MCP-Based LLM Agents},
-  year         = {2026},
-  url          = {https://github.com/<username>/mcp-pep-agent-security},
-  note         = {Replication package for the manuscript "Beyond Prompt-Level Defense"},
-}
-```
 
 ## License
 
